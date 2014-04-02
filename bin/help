@@ -1,0 +1,21 @@
+Usage: make [optionss] [target_name...]
+Update files that are derived from other files.
+
+General:
+      --help                    display this help and exit
+  -v, --version                 output version and exit
+  -e, --env                     cause env. variable to override macro values
+  -f, --file [path]             specify a makefile path
+  -i, --ignore-errors           ignore error codes returned by commands
+  -n, --dry-run                 print commands but execute nothing
+  -p, --print                   output the complete set of definitions
+  -q, --query                   return 0 if up-to-date, 1 otherwise
+                                targets are not updated
+  -r, --raw                     disable builtin suffixes or rules
+  -s, --silent                  do not output commands
+  -t, --touch                   touch files instead of updating
+
+Mode:
+  -k, --greedy                  continue to update other, unrelated targets if
+                                a non-ignored error occurs
+  -S, --lazy                    terminate if an error occurs [default]

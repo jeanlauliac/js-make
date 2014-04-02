@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "name": "make",
+  "description": "Make in pure Javascript",
+  "keywords": [
+    "make",
+    "build",
+    "system"
+  ],
+  "homepage": "https://github.com/jeanlauliac/js-make",
+  "author": "Jean Lauliac <jean@lauliac.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeanlauliac/js-make"
+  },
+  "bugs": "https://github.com/jeanlauliac/js-make/issues",
+  "directories": {
+    "doc": "./doc",
+    "man": "./man",
+    "lib": "./lib",
+    "bin": "./bin"
+  },
+  "main": "./make",
+  "bin": "./bin/make.js",
+  "files": [
+    "make.js",
+    "lib/",
+    "bin/",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "slide": "~1.1.5",
+    "nopt": "~2.2.0",
+    "byline": "^4.1.1"
+  },
+  "devDependencies": {
+    "tape": "~2.12.0",
+    "faucet": "0.0.1"
+  },
+  "engines": {
+    "node": ">=0.10",
+    "npm": "1"
+  },
+  "scripts": {
+    "test": "faucet"
+  },
+  "license": "MIT Expat"
+}
