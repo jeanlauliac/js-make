@@ -1,4 +1,4 @@
-Usage: make [optionss] [target_name...]
+Usage: make [optionss] [macro=value] [target_name...]
 Update files that are derived from other files.
 
 General:

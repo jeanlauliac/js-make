@@ -5,7 +5,6 @@ var make = require('..');
 var nopt = require('nopt');
 var path = require('path');
 var fs = require('fs');
-var util = require('util');
 
 var KNOWN_OPTS = {
     'help': Boolean,
@@ -40,9 +39,9 @@ var SHORTHANDS = {
 
 var DEFAULT_MAKEFILE_PATHS = ['Makefile', 'makefile'];
 
-var ErrorTemplates = {
+var makeError = make.makeError({
     NO_MAKEFILE: 'error: no makefile found'
-};
+});
 
 main();
 
@@ -96,16 +95,6 @@ function tryCreateReadStream(filePath, cb) {
     var stream = fs.createReadStream(filePath, {encoding: 'utf8'});
     stream.on('open', function () { cb(null, stream); });
     stream.on('error', function (err) { cb(err); });
-}
-
-function makeError() {
-    var args = Array.prototype.slice.call(arguments);
-    var code = args.shift();
-    var template = ErrorTemplates[code];
-    if (typeof template === 'undefined') template = 'unknown error';
-    var err = new Error(util.format.apply(null, [template].concat(args)));
-    err.code = code;
-    return err;
 }
 
 function error(err) {
