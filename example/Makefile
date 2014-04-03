@@ -1,5 +1,3 @@
-.NPM: make@1.0.3
-
 .PHONY: all
 all: output/cake.js
 
