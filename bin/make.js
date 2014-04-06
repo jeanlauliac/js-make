@@ -40,7 +40,7 @@ var SHORTHANDS = {
 var DEFAULT_MAKEFILE_PATHS = ['Makefile', 'makefile'];
 
 var makeError = make.makeError({
-    NO_MAKEFILE: 'error: no makefile found'
+    NO_MAKEFILE: 'no makefile found'
 });
 
 main();

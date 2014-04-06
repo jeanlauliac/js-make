@@ -6,13 +6,7 @@
     "maxstatements": 20,
     "maxlen": 80,
     "node": true,
+    "browser": false,
     "white": true,
-    "eqnull": true,
-    "globals": {
-        "describe": false,
-        "beforeEach": false,
-        "it": false,
-        "sinon": false,
-        "should": false
-    }
+    "eqnull": true
 }
