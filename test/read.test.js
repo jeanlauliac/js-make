@@ -22,10 +22,10 @@ testRead('simple deps', MK_SIMPLE_DEPS, function (t, file) {
     t.equal(file.rules[0].targets[0], 'foo');
     t.equal(file.rules[1].targets[0], 'bar');
     t.equal(file.rules[1].targets[1], 'ash');
-    t.equal(file.rules[0].prerequisites[0], 'bar');
-    t.equal(file.rules[0].prerequisites[1], 'typ');
-    t.equal(file.rules[1].prerequisites[0], 'glo');
-    t.equal(file.rules[1].prerequisites[1], 'fiz');
+    t.equal(file.rules[0].prereqs[0], 'bar');
+    t.equal(file.rules[0].prereqs[1], 'typ');
+    t.equal(file.rules[1].prereqs[0], 'glo');
+    t.equal(file.rules[1].prereqs[1], 'fiz');
     t.end();
 });
 
@@ -36,16 +36,16 @@ testRead('command', MK_COMMAND, function (t, file) {
 
 testRead('comment', MK_COMMENT, function (t, file) {
     t.equal(file.rules[0].targets[0], 'foo');
-    t.equal(file.rules[0].prerequisites[0], 'bar');
+    t.equal(file.rules[0].prereqs[0], 'bar');
     t.equal(file.rules[1].targets[0], 'col');
-    t.equal(file.rules[1].prerequisites[0], 'bal');
+    t.equal(file.rules[1].prereqs[0], 'bal');
     t.end();
 });
 
 function testRead(desc, str, cb) {
     test('read() ' + desc, function (t) {
         read(new StringReadable(str), OPTS, function (err, file) {
-            if (err) throw err;
+            if (err) t.error(err);
             return cb(t, file);
         });
     });
