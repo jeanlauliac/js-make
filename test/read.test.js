@@ -1,5 +1,4 @@
 'use strict';
-
 var test = require('tape');
 var read = require('../lib/read');
 var util = require('util');
@@ -53,7 +52,6 @@ function testRead(desc, str, cb) {
 }
 
 util.inherits(StringReadable, Readable);
-
 function StringReadable(str, opts) {
     if (!opts) opts = {};
     opts.encoding = 'utf8';
