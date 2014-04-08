@@ -7,3 +7,8 @@ all: cake.o
 
 %.o %.d: %.c
 	echo foo
+
+
+g=:
+
+foo $(g) fu

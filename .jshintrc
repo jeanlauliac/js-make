@@ -8,5 +8,7 @@
     "node": true,
     "browser": false,
     "white": true,
-    "eqnull": true
+    "eqnull": true,
+    "asi": true,
+    "laxcomma": true
 }

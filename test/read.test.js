@@ -18,6 +18,9 @@ var MK_COMMENT =
     'foo: bar # the cake is a lie\n' +
     'col: bal';
 
+var MK_ESCAPE =
+    'foo bar\\:: b\\ar\\\nkikoo\n';
+
 testRead('simple deps', MK_SIMPLE_DEPS, function (t, file) {
     t.equal(file.rules[0].targets[0], 'foo');
     t.equal(file.rules[1].targets[0], 'bar');
@@ -42,10 +45,18 @@ testRead('comment', MK_COMMENT, function (t, file) {
     t.end();
 });
 
+testRead('escape', MK_ESCAPE, function (t, file) {
+    t.equal(file.rules[0].targets[0], 'foo');
+    t.equal(file.rules[0].targets[1], 'bar:');
+    t.equal(file.rules[1].prereqs[0], 'b\\ar');
+    t.equal(file.rules[1].prereqs[0], 'kikoo');
+    t.end();
+});
+
 function testRead(desc, str, cb) {
     test('read() ' + desc, function (t) {
         read(new StringReadable(str), OPTS, function (err, file) {
-            if (err) t.error(err);
+            t.error(err);
             return cb(t, file);
         });
     });
