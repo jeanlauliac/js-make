@@ -94,12 +94,3 @@ test('makeReadToken() escaping', function (t) {
         t.same(buffer, ['the', '\n', 'cake:', 'i\\s', 'a', 'lie'])
     })
 })
-
-function makeStringReadChar(str) {
-    var i = 0
-    return function readStringChar(cb) {
-        if (i >= str.length) return process.nextTick(cb.bind(null, null, null))
-        process.nextTick(cb.bind(null, null, str[i]))
-        i++
-    }
-}
