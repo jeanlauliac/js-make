@@ -2,12 +2,12 @@
 module.exports = StringCharReader
 
 function StringCharReader(str) {
-    this._i = 0
+    this._i = -1
     this._str = str
 }
 
 StringCharReader.prototype.peek = function () {
-    if (this._i >= this._str.length) return null
+    if (this._i < 0 || this._i >= this._str.length) return null
     return this._str[this._i]
 }
 

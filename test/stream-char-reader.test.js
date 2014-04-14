@@ -8,20 +8,17 @@ var CHUNKS = ['foo', 'bar', 'fi', 'kikoo']
 
 test('StreamCharReader.read()', function (t) {
     var stream = new TestStream()
-    StreamCharReader.fromStream(stream, function (err, reader) {
+    var reader = new StreamCharReader(stream)
+    var buffer = ''
+    reader.consume(function next(err, ch) {
         t.error(err)
-        var buffer = ''
-        ;(function next(err) {
-            t.error(err)
-            var ch = reader.peek()
-            if (ch === null) {
-                var result = CHUNKS.join('')
-                t.equal(buffer, result)
-                return t.end()
-            }
-            buffer += ch
-            reader.consume(next)
-        })()
+        if (ch === null) {
+            var result = CHUNKS.join('')
+            t.equal(buffer, result)
+            return t.end()
+        }
+        buffer += ch
+        reader.consume(next)
     })
 })
 
